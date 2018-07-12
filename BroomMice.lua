@@ -115,6 +115,7 @@ wizard={
 
 function eventNewPlayer(n)
 	p[n]={state="normal",id=0,right=true}
+	system.bindKeyboard(n,32,true)
 end
 
 function eventNewGame()
@@ -122,6 +123,10 @@ function eventNewGame()
 		p[n].state="normal"
 		p[n].right=true
 	end
+end
+
+function eventKeyboard(n,k,d,x,y)
+	tfm.exec.movePlayer(n,0,0,false,0,-40,false)
 end
 table.foreach(tfm.get.room.playerList,eventNewPlayer)
 
